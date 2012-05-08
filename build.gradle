@@ -1,0 +1,54 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'jetty'
+apply plugin: 'maven'
+
+apply from: 'https://raw.github.com/lnramirez/buildscripts/master/mvnfit.gradle'
+
+//java
+sourceCompatibility=1.6
+//war
+war.baseName='mailtester'
+//jetty
+jettyRun.scanIntervalSeconds=1
+jettyRun.httpPort=8282
+jettyRun.stopPort=8081
+jettyRun.stopKey='s'
+//project
+group='com.bajoneando.mailtester'
+version='0.1.1-SNAPSHOT'
+description='Mail tester for unit and functional testing'
+//versions
+springVersion = '3.1.1.RELEASE'
+jacksonVersion = '1.6.0'
+xstreamVersion = '1.3.1'
+
+junitVersion = '4.8.2'
+//repositories
+repositories {
+    mavenCentral()
+    mavenRepo urls: [
+        "http://repo.springsource.org/libs-release"]
+    }
+//dependencies
+dependencies {
+    compile "org.subethamail:subethasmtp:3.1.6" 
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.springframework:spring-oxm:$springVersion"
+    compile "com.thoughtworks.xstream:xstream:$xstreamVersion"
+    compile "org.codehaus.jackson:jackson-jaxrs:$jacksonVersion"
+    compile "jstl:jstl:1.1.2"
+    compile "taglibs:standard:1.1.2"
+    
+    providedCompile "javax.servlet:servlet-api:2.5"
+    providedCompile "javax.servlet.jsp:jsp-api:2.1"
+
+    testCompile "junit:junit:$junitVersion"
+    testCompile "org.springframework:spring-test:$springVersion"
+
+    runtime "org.tuckey:urlrewritefilter:3.2.0"
+    runtime "org.slf4j:slf4j-api:1.6.4"
+}
+
