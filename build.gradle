@@ -11,8 +11,8 @@ sourceCompatibility=1.6
 war.baseName='mailtester'
 //jetty
 jettyRun.scanIntervalSeconds=1
-jettyRun.httpPort=8282
-jettyRun.stopPort=8081
+jettyRun.httpPort=8283
+jettyRun.stopPort=8082
 jettyRun.stopKey='s'
 //project
 group='com.bajoneando.mailtester'
