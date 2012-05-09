@@ -19,8 +19,10 @@ import org.subethamail.wiser.WiserMessage;
 public class HomeController {
     
     @RequestMapping("/")
-    public ModelAndView home() {
-        return new ModelAndView("home");
+    public String home(ModelAndView modelAndView) {
+        List<WiserMessage> wiserMessages = wiser.getMessages();
+        modelAndView.addObject("wiserMessages", wiserMessages);
+        return "/home";
     }
     
     @RequestMapping(value="/messages", method=RequestMethod.GET, headers="Accept=application/json")
