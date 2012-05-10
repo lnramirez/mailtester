@@ -27,9 +27,8 @@ junitVersion = '4.8.2'
 //repositories
 repositories {
     mavenCentral()
-    mavenRepo urls: [
-        "http://repo.springsource.org/libs-release"]
-    }
+    mavenRepo url: 'http://repo.springsource.org/libs-release'
+}
 //dependencies
 dependencies {
     compile "org.subethamail:subethasmtp:3.1.6" 
@@ -51,4 +50,3 @@ dependencies {
     runtime "org.tuckey:urlrewritefilter:3.2.0"
     runtime "org.slf4j:slf4j-api:1.6.4"
 }
-
