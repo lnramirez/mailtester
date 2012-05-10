@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
@@ -13,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.subethamail.wiser.Wiser;
 import org.subethamail.wiser.WiserMessage;
 
@@ -38,6 +40,7 @@ public class HomeController {
     }
     
     @RequestMapping(value="/addDummyMail", method= RequestMethod.POST, headers="Accept=application/json")
+    @ResponseStatus(HttpStatus.OK)
     public void addDummyMail() {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setFrom("admin@bajoneando.com");
