@@ -50,3 +50,7 @@ dependencies {
     runtime "org.tuckey:urlrewritefilter:3.2.0"
     runtime "org.slf4j:slf4j-api:1.6.4"
 }
+
+install.doLast {
+    copyPomFiles
+}
